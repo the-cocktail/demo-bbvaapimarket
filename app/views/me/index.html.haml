@@ -1,0 +1,24 @@
+.row.show-grid
+  .col-md-5
+    %b
+      Name
+  .col-md-4
+    ="#{@current_user[:name]} #{@current_user[:surname]} #{@current_user[:secondSurname]}"
+.row
+  .col-md-6
+    %b
+      Contact Info
+.row
+  .col-md-1
+  .col-md-4
+    Email
+  .col-md-6
+    %b
+      =@current_user[:contactInfo][:email]
+.row
+  .col-md-1
+  .col-md-4
+    phone
+  .col-md-6
+    %b
+      =@current_user[:contactInfo][:phone]
