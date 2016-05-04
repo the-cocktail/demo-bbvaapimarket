@@ -19,13 +19,12 @@
         %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand(href="/additives") BBVA
-        %a.navbar-brand(href="/me") Abian Marrero
+        %a.navbar-brand(href="/accounts") BBVA
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
-            //%li=link_to('Abian Marrero', '/users/show')
+            %li=link_to('Personal Information', '/me')
             %li=link_to("Accounts", accounts_path)
-            %li=link_to("Cards", 'origins_path')
+            %li=link_to("Cards", cards_path)
     .container-fluid
       .row
         .col-md-1
@@ -33,4 +32,4 @@
           =yield
           %footer
             %br
-            %p &copy; CabosoApps 2015
+            %p BBVA API MARKET

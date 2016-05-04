@@ -1,17 +1,19 @@
 .page-header
-  %h2=t '.title', :default => "Accounts"
+  %h2=t '.title', :default => "My Accounts"
 .table-responsive
   %table.table.table-striped.table-condensed
     %thead
       %tr
-        %th= 'Alias'
+        %th= 'Alias/Number'
         %th= 'Number'
+        %th= 'Type'
         %th= 'Balance'
         %th
     %tbody
       - @accounts.each do |account|
         %tr
           %td{:style => "white-space : nowrap;"}
-            = link_to account[:malias], account_path(account[:number])
-          %td= account[:number]
+            = link_to (account[:alias] || account[:number]), account_path(account[:number])
+          %td= account[:id]
+          %td= account[:type]
           %td= account[:balance].to_s + " " + account[:currency]

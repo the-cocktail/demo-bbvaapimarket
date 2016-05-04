@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   resources :accounts
+  resources :cards
   resources :me, only: [:index]
+  #BBVA Omniauth callback
+  get '/auth/:bbva/callback', :to => 'sessions#create'
+  #Home
+  root 'accounts#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

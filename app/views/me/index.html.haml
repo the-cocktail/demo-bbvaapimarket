@@ -1,24 +1,32 @@
 .row.show-grid
-  .col-md-5
+  .col-md-1
     %b
       Name
   .col-md-4
     ="#{@current_user[:name]} #{@current_user[:surname]} #{@current_user[:secondSurname]}"
-.row
-  .col-md-6
-    %b
-      Contact Info
+%br
 .row
   .col-md-1
-  .col-md-4
-    Email
+    %b='Contact Info'
   .col-md-6
-    %b
-      =@current_user[:contactInfo][:email]
+    .row
+      .col-md-3
+        Email
+      .col-md-6
+        =@current_user[:contactInfo][:email] 
+    .row
+      .col-md-3
+        Phone
+      .col-md-6
+        =@current_user[:contactInfo][:phone] 
+%br
 .row
   .col-md-1
-  .col-md-4
-    phone
+    %b='Address'
   .col-md-6
-    %b
-      =@current_user[:contactInfo][:phone]
+    - @current_user[:address].each do |k, v|
+      .row
+        .col-md-3
+          = k.humanize
+        .col-md-6
+          = v 

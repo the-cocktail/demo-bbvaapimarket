@@ -1,0 +1,22 @@
+.page-header
+  %h2=t '.title', :default => "My Cards"
+.table-responsive
+  %table.table.table-striped.table-condensed
+    %thead
+      %tr
+        %th= 'Number'
+        %th= 'Description'
+        %th= 'Status'
+        %th= 'Type'
+        %th= 'Balance'
+        %th
+    %tbody
+      - @cards.each do |card|
+        %tr
+          %td{:style => "white-space : nowrap;"}
+            = link_to ( card[:id]), card_path(card[:number])
+          %td= card[:description]
+          %td= card[:status]
+          %td= card[:type]
+          %td= card[:availableBalance].to_s + " " + card[:currency]
+
