@@ -14,7 +14,8 @@
       - @cards.each do |card|
         %tr
           %td{:style => "white-space : nowrap;"}
-            = link_to ( card[:id]), card_path(card[:number])
+            //= link_to ( card[:id]), card_path(card[:id])
+            = card[:id]
           %td= card[:description]
           %td= card[:status]
           %td= card[:type]

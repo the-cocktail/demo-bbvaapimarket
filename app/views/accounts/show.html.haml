@@ -1,0 +1,11 @@
+%h3="Detail Information"
+.row
+  .col-md-6
+    - formats = @account.delete("formats")
+    - @account.merge!(formats).keys.each do |k|
+      .row
+        .col-md-3
+          %b
+            = k.humanize
+        .col-md-6
+          = @account[k]

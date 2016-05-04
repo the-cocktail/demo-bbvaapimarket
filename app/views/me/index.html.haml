@@ -19,14 +19,3 @@
         Phone
       .col-md-6
         =@current_user[:contactInfo][:phone] 
-%br
-.row
-  .col-md-1
-    %b='Address'
-  .col-md-6
-    - @current_user[:address].each do |k, v|
-      .row
-        .col-md-3
-          = k.humanize
-        .col-md-6
-          = v 

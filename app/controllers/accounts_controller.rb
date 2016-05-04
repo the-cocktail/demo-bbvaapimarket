@@ -2,7 +2,11 @@ class AccountsController < ApplicationController
 
   def index
     @accounts  = @client.accounts["accounts"]
-    @identity  = @client.identity["client"]   
+    @client    = @client.identity["client"]   
+  end
+
+  def show
+    @account  = @client.accounts(params[:id])["account"]
   end
 
 end

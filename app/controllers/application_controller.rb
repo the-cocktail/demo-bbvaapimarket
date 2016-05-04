@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  #before_filter :get_client
   before_filter :authorize
 
 
@@ -31,7 +30,7 @@ class ApplicationController < ActionController::Base
     end
 
     def token_expired?
-      session[:auth] && (Time.at(session[:auth]["credentials"]["expires_at"]) < Time.now)
+      session[:auth] && (session[:auth]["credentials"]["expires_at"] < Time.now.to_i)
     end
 
     def refresh_token!
