@@ -11,12 +11,13 @@ class ApplicationController < ActionController::Base
 
     unless session_active?      
       session[:last_url] = request.env["PATH_INFO"]
-      redirect_to "/auth/bbva"
+      redirect_root_if_needed
     else
       @client = Bbva::Client.new(session[:auth]["credentials"].merge({client_id: CLIENT_ID , secret: CLIENT_SECRET})) 
     end
       
   end
+
 
   private
 
@@ -36,12 +37,21 @@ class ApplicationController < ActionController::Base
     def refresh_token!
 
       @client = Bbva::Client.new(session[:auth]["credentials"].merge({client_id: CLIENT_ID , secret: CLIENT_SECRET}))
-      data    = JSON.parse(@client.refresh_token)
-      Rails.logger.info("refresh_token!")
-      #Renovate credentials
-      session[:auth]["credentials"]["expires_at"]    = Time.now.to_i + data["expires_in"]
-      session[:auth]["credentials"]["token"]         = data["access_token"]
-      session[:auth]["credentials"]["refresh_token"] = data["refresh_token"]
+      begin
+        data    = JSON.parse(@client.refresh_token)
+        Rails.logger.info("refresh_token!")
+        #Renovate credentials
+        session[:auth]["credentials"]["expires_at"]    = Time.now.to_i + data["expires_in"]
+        session[:auth]["credentials"]["token"]         = data["access_token"]
+        session[:auth]["credentials"]["refresh_token"] = data["refresh_token"]        
+      rescue Exception => e
+        redirect_to "/auth/bbva" 
+      end
+
+    end
+
+    def redirect_root_if_needed
+      redirect_to :root unless ['/','/auth/bbva'].include?(request.env["PATH_INFO"])
     end
 
 end

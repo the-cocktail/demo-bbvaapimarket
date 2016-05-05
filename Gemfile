@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 #BBVA Oauth2 process
-gem 'omniauth-bbva', :path => "/Users/abian.marrero/Documents/rails_projects/omniauth-bbva"
+gem 'omniauth-bbva', git: 'git@github.com:the-cocktail/omniauth-bbva.git'
 
 group :development, :test do
   gem 'pry'

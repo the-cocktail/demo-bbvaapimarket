@@ -22,9 +22,15 @@
         %a.navbar-brand(href="/accounts") BBVA
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
-            %li=link_to('Personal Information', '/me')
-            %li=link_to("Accounts", accounts_path)
-            %li=link_to("Cards", cards_path)
+            - if session[:auth]
+              %li=link_to('Personal Information', '/me')
+              %li=link_to("Accounts", accounts_path)
+              %li=link_to("Cards", cards_path)
+              %li=link_to("Log out", sessions_destroy_path)
+              %li=link_to("More Users", '/me/samples')
+            - else
+              %li=link_to("Log in", '/auth/bbva')
+            
     .container-fluid
       .row
         .col-md-1

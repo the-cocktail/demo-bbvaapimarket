@@ -1,0 +1,22 @@
+.page-header
+  %h3='Sandbox Users'
+
+%h5='Log in with one of this user to play with'
+%br
+.table-responsive
+  %table.table.table-striped.table-condensed
+    %thead
+      %tr
+        %th= 'User identifier'
+        %th= 'User password'
+        %th
+    %tbody
+      -@sandbox_user_ids.each do |user_id|
+        %tr
+          %td
+            = user_id
+          %td
+            = @sandbox_password
+
+
+

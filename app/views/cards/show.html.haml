@@ -1,10 +1,10 @@
 %h3="Detail Information"
 .row
   .col-md-6
-    - @account.merge!(formats).keys.each do |k|
+    - @card.keys.each do |k|
       .row
         .col-md-3
           %b
             = k.humanize
         .col-md-6
-          = @account[k]
+          = @card[k]
