@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 #BBVA Oauth2 process
-gem 'omniauth-bbva', git: 'git@github.com:the-cocktail/omniauth-bbva.git'
+gem 'omniauth-bbva', git: 'git://github.com/the-cocktail/omniauth-bbva.git'
 
 group :development, :test do
   gem 'pry'
@@ -33,4 +33,3 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
