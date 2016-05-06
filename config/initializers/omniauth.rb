@@ -3,10 +3,10 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   CLIENT_SECRET = ENV["BBVA_CLIENT_SECRET"]
   #if some ENV variables are not defined Omniauth::Bbva will take the default sandbox ones
   args = {
-    site:           ENV['BBVA_SITE'], # by default => http://localhost:3000/auth/bbva/callback
+    site:           ENV['BBVA_SITE'], 
     authorize_url:  ENV['BBVA_AUTHORIZE_URL'],
     token_url:      ENV['BBVA_TOKEN_URL'],
-    callback:       ENV['BBVA_CALLBACK']
+    callback:       ENV['BBVA_CALLBACK']# by default => http://localhost:3000/auth/bbva/callback
   }
   provider :bbva , CLIENT_ID, CLIENT_SECRET, args
 end

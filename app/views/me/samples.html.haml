@@ -1,7 +1,10 @@
 .page-header
   %h3='Sandbox Users'
 
-%h5='Log in with one of this user to play with'
+%h5
+  %p
+    Log in with one of these users to play with. You can see the complete user list #{ link_to 'here', 'https://www.bbvaapimarket.com/web/api_market/bbva/identity/documentation#documentation-sandbox'}.
+ 
 %br
 .table-responsive
   %table.table.table-striped.table-condensed
@@ -17,6 +20,4 @@
             = user_id
           %td
             = @sandbox_password
-
-
 

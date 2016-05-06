@@ -14,22 +14,22 @@
 
 
   %body
-    .navbar.navbar-default.navbar-static-top
+    .navbar.navbar-default.navbar-static-top{style:"background-color:#0079c1;"}
       .container
         %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand(href="/accounts") BBVA
+        %a.navbar-brand{style: "color:white;" }(href="/accounts") BBVA API MARKET
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
             - if session[:auth]
-              %li=link_to('Personal Information', '/me')
-              %li=link_to("Accounts", accounts_path)
-              %li=link_to("Cards", cards_path)
-              %li=link_to("Log out", sessions_destroy_path)
-              %li=link_to("More Users", '/me/samples')
+              %li=link_to('Personal Information', '/me',{style: "color:white;"})
+              %li=link_to("Accounts", accounts_path,{style: "color:white;"})
+              %li=link_to("Cards", cards_path,{style: "color:white;"})
+              %li=link_to("Log out", sessions_destroy_path,{style: "color:white;"})
+              %li=link_to("More Users", '/me/samples',{style: "color:white;"})
             - else
-              %li=link_to("Log in", '/auth/bbva')
+              %li=link_to("Log in", '/auth/bbva',{style: "color:white;"})
             
     .container-fluid
       .row
