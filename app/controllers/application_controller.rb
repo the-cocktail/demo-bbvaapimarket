@@ -45,6 +45,7 @@ class ApplicationController < ActionController::Base
         session[:auth]["credentials"]["token"]         = data["access_token"]
         session[:auth]["credentials"]["refresh_token"] = data["refresh_token"]        
       rescue Exception => e
+        # refresh_token also have expiration time ("refresh_expires_in"=>43199) so we have to authorize again.
         redirect_to "/auth/bbva" 
       end
 

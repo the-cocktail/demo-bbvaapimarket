@@ -9,7 +9,7 @@
           %b
             = k.humanize
         .col-md-6
-          = @account[k]
+          =  (k == 'type') ? account_type(@account[k]) : @account[k]
 
 - if @transactions
   %br

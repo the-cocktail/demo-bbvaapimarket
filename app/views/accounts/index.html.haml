@@ -18,5 +18,5 @@
           %td{:style => "white-space : nowrap;"}
             = link_to (account[:alias] || account[:number]), account_path(account[:id])
           %td= account[:id]
-          %td= account[:type]
+          %td= account_type(account[:type])
           %td= account[:balance].to_s + " " + account[:currency]

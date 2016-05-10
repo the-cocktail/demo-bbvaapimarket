@@ -7,4 +7,4 @@
           %b
             = k.humanize
         .col-md-6
-          = @card[k]
+          =  (k == 'type') ? card_type(@card[k]) : @card[k]

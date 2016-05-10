@@ -17,7 +17,7 @@
             //= link_to ( card[:id]), card_path(card[:id])
             = card[:id]
           %td= card[:description]
-          %td= card[:status]
-          %td= card[:type]
+          %td= card[:status].try(:humanize)
+          %td= card_type(card[:type])
           %td= card[:availableBalance].to_s + " " + card[:currency]
 
