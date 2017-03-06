@@ -10,7 +10,7 @@ class MeController < ApplicationController
 
   #Sandbox user ids for all of them the password is '123456'
   def samples
-    @sandbox_user_ids = ["019609283N","50461445C","05745476F","40628930M","64789352P","20120708D","56909291T","49315809Z","09929746W"]
+    @sandbox_user_ids = ["00000034B","00001000B","46757760W","78000000P"]
     @sandbox_password = '123456'
   end
 
