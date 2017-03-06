@@ -1,0 +1,7 @@
+bbva:
+  client_id: <%= ENV["BBVA_CLIENT_ID"] %>
+  client_secret: <%= ENV["BBVA_CLIENT_SECRET"] %>
+  site: <%= ENV["BBVA_SITE"] %>
+  authorize_url:
+  token_url:
+  callback: <%= ENV["BBVA_CALLBACK"] %>
