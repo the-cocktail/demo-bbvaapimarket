@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -21,6 +22,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'config'
+
 #BBVA Oauth2 process
 gem 'omniauth-bbva', git: 'git://github.com/the-cocktail/omniauth-bbva.git'
 
@@ -32,6 +35,14 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'byebug'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-remote'
+  gem 'pry-stack_explorer'
+  gem 'pry-rescue'
 end
 
 #Enable logs in Heroku
