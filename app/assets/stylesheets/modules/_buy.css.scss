@@ -1,0 +1,18 @@
+.fake-info {
+  top: 66px;
+  left: -75px;
+  display: block;
+  width: 650px;
+  max-width: 570px;
+
+  .popover-title {
+    background-color: #4caf50;
+    color: white;
+  }
+
+  .popover-content {
+    p {
+      font-size: 18px;
+    }
+  }
+}
