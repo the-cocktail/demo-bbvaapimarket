@@ -1,0 +1,19 @@
+<table class="table">
+<caption>Tarjetas del usuario.</caption>
+  <thead>
+    <tr>
+      <th>Descripción</th>
+      <th>Tipo</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @client.cards.each do |card| %>
+    <tr>
+      <td><%= card["description"] %></td>
+      <td><%= card["type"] %></td>
+      <td><%= number_to_currency(card["availableBalance"], unit: "€") %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

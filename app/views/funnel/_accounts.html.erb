@@ -1,0 +1,19 @@
+<table class="table">
+<caption>Cuentas del usuario.</caption>
+  <thead>
+    <tr>
+      <th>Alias</th>
+      <th>Descripción</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @client.accounts.each do |account| %>
+    <tr>
+      <td><%= account["alias"] %></td>
+      <td><%= account["description"] %></td>
+      <td><%= number_to_currency(account["balance"], unit: "€") %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

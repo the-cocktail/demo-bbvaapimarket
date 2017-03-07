@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+  more_than_8000: Por tener en una de tus cuentas más de 8.000€
+  more_than_2_accounts: Por tener más de 2 cuentas con BBVA
+  default_text: Precio estándar. No se ha aplicado ningún descuento por no cumplir las condiciones necesarias en cuentas y/o tarjetas.
+  more_or_equal_than_2_cards: Por tener 2 o más tarjetas con BBVA

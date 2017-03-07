@@ -1,0 +1,23 @@
+<div class="page-header">
+  <h3>
+    Select product to buy
+  </h3>
+</div>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <p><%= image_tag "nintendo.jpg" %></p>
+    <h2>Nintendo Switch</h2>
+    <div>
+      <h3>Precio final: <%= number_to_currency(@price, unit: "€") %></h3>
+    </div>
+      <div class="popover left fake-info" role="tooltip">
+        <div class="arrow">
+        </div>
+        <h2 class="popover-title"><b>LÓGICA APLICADA</b></h2>
+        <div class="popover-content">
+          <b><%= @text %></b>
+          <%= render partial: @partial %>
+        </div>
+      </div>
+  </div>
+</div>
