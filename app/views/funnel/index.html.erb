@@ -1,12 +1,22 @@
 <div class="page-header">
   <h3>
-    Selecciona un producto
+    Listado de productos
   </h3>
 </div>
-<div class="row">
-  <div class="col-md-12 text-center">
+<div class="row funnel">
+  <div class="col-md-4 text-center">
     <p><%= image_tag "nintendo.jpg" %></p>
     <h2>Nintendo Switch</h2>
+    <h3><%= link_to "Haz click para ver el precio final", "#", class: "go-to-bbva" %></h3>
+  </div>
+  <div class="col-md-4 text-center">
+    <p><%= image_tag "iphone.jpg" %></p>
+    <h2>iPhone 7</h2>
+    <h3><%= link_to "Haz click para ver el precio final", "#", class: "go-to-bbva" %></h3>
+  </div>
+  <div class="col-md-4 text-center">
+    <p><%= image_tag "samsung_gear.jpg" %></p>
+    <h2>Samsung Gear S2</h2>
     <h3><%= link_to "Haz click para ver el precio final", "#", class: "go-to-bbva" %></h3>
   </div>
 </div>
