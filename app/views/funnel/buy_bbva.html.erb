@@ -13,27 +13,27 @@
     <p><%= image_tag "nintendo.jpg" %></p>
     <h2>Nintendo Switch</h2>
     <div>
-      <h4 class="text-muted">Precio real: <%= number_to_currency(@real_prices[0], unit: "€") %></h4>
-      <h4 class="text-success">Descuento: <%= number_to_currency(@real_prices[0] - @prices[0], unit: "€") %></h4>
-      <h3>Precio final: <%= number_to_currency(@prices[0], unit: "€") %></h3>
+      <h4 class="text-muted">Precio real: <%= number_to_currency(@prices[0], unit: "€") %></h4>
+      <h4 class="text-success">Descuento: <%= number_to_currency(@prices[0] * @discount, unit: "€") %></h4>
+      <h3>Precio final: <%= number_to_currency(@prices[0] * (1.0 - @discount), unit: "€") %></h3>
     </div>
   </div>
   <div class="col-md-4 text-center">
     <p><%= image_tag "iphone.jpg" %></p>
     <h2>iPhone 7</h2>
     <div>
-      <h4 class="text-muted">Precio real: <%= number_to_currency(@real_prices[1], unit: "€") %></h4>
-      <h4 class="text-success">Descuento: <%= number_to_currency(@real_prices[1] - @prices[1], unit: "€") %></h4>
-      <h3>Precio final: <%= number_to_currency(@prices[1], unit: "€") %></h3>
+      <h4 class="text-muted">Precio real: <%= number_to_currency(@prices[1], unit: "€") %></h4>
+      <h4 class="text-success">Descuento: <%= number_to_currency(@prices[1] * @discount, unit: "€") %></h4>
+      <h3>Precio final: <%= number_to_currency(@prices[1] * (1.0 - @discount), unit: "€") %></h3>
     </div>
   </div>
   <div class="col-md-4 text-center">
     <p><%= image_tag "samsung_gear.jpg" %></p>
     <h2>Samsung Gear S2</h2>
     <div>
-      <h4 class="text-muted">Precio real: <%= number_to_currency(@real_prices[2], unit: "€") %></h4>
-      <h4 class="text-success">Descuento: <%= number_to_currency(@real_prices[2] - @prices[2], unit: "€") %></h4>
-      <h3>Precio final: <%= number_to_currency(@prices[2], unit: "€") %></h3>
+      <h4 class="text-muted">Precio real: <%= number_to_currency(@prices[2], unit: "€") %></h4>
+      <h4 class="text-success">Descuento: <%= number_to_currency(@prices[2] * @discount, unit: "€") %></h4>
+      <h3>Precio final: <%= number_to_currency(@prices[2] * (1.0 - @discount), unit: "€") %></h3>
     </div>
   </div>
 </div>
@@ -48,7 +48,8 @@
         <h4 class="modal-title" id="myModalLabel"><b>LÓGICA APLICADA</b></h4>
       </div>
       <div class="modal-body">
-        <b><%= @text %></b>
+        <b><%= @text %></b><br/>
+        <b class="text-success">Descuento cliente BBVA: <%= @discount * 100 %>%</b>
         <%= render partial: @partial %>
       </div>
       <div class="modal-footer">

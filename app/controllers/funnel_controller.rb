@@ -8,23 +8,23 @@ class FunnelController < ApplicationController
   end
 
   def buy_bbva
-    @real_prices = [250, 900, 250]
+    @prices = [250, 900, 250]
     if @client.accounts.any? && @client.accounts.map{|account| account["balance"]}.max > 8_000
       @text = I18n.t(".more_than_8000")
       @partial = "accounts"
-      @prices = [180, 680, 150]
+      @discount = 0.3
     elsif @client.accounts.size > 2
       @text = I18n.t(".more_than_2_accounts")
       @partial = "accounts"
-      @prices = [220, 750, 200]
+      @discount = 0.2
     elsif @client.cards.size >= 2
       @text = I18n.t(".more_or_equal_than_2_cards")
       @partial = "cards"
-      @prices = [200, 700, 180]
+      @discount = 0.1
     else
       @text = I18n.t(".default_text")
       @partial = "default"
-      @prices = [250, 900, 250]
+      @discount = 0.0
     end
   end
 
