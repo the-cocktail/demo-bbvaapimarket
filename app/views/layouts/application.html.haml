@@ -14,21 +14,22 @@
 
 
   %body
-    .navbar.navbar-default.navbar-static-top{style:"background-color:#0079c1;"}
+    .navbar.navbar-default.navbar-static-top{style:"background-color:#90AC2B;"}
       .container
         %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand{style: "color:white;" }(href="/accounts") BBVA API MARKET
+        %a.navbar-brand.custom{style: "color:white;" }(href="/accounts")
+          = image_tag("logo-tck.png")
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
+            %li=link_to("BBVA API Market", '/me/samples' ,{style: "color:white;"})
             - if session[:auth]
               %li=link_to('Personal Information', '/me',{style: "color:white;"})
               %li=link_to("Accounts", accounts_path,{style: "color:white;"})
               %li=link_to("Cards", cards_path,{style: "color:white;"})
-              %li=link_to("Buy", funnel_buy_path ,{style: "color:white;"})
+              %li=link_to("Buy with BBVA", funnel_buy_bbva_path ,{style: "color:white;"})
               %li=link_to("Log out", sessions_destroy_path,{style: "color:white;"})
-              %li=link_to("More Users", '/me/samples',{style: "color:white;"})
             - else
               %li=link_to("Log in", '#',{style: "color:white;", class: "go-to-bbva"})
               %li=link_to("Productos", funnel_index_path ,{style: "color:white;"})
@@ -41,7 +42,8 @@
           =yield
           %footer
             %br
-            %p BBVA API MARKET
+            %p
+              = image_tag("logo-tck.png")
 
 
 = render 'shared/javascript'

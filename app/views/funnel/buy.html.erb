@@ -1,53 +1,28 @@
 <div class="page-header">
   <h3>
-    Precio final de productos
+    Comprar productos
   </h3>
-</div>
-<div class="row">
-  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
-    <b>Ver lógica aplicada</b>
-  </button>
 </div>
 <div class="row funnel">
   <div class="col-md-4 text-center">
     <p><%= image_tag "nintendo.jpg" %></p>
     <h2>Nintendo Switch</h2>
     <div>
-      <h3>Precio final: <%= number_to_currency(@prices[0], unit: "€") %></h3>
+      <h3>Precio: <%= number_to_currency(@prices[0], unit: "€") %></h3>
     </div>
   </div>
   <div class="col-md-4 text-center">
     <p><%= image_tag "iphone.jpg" %></p>
     <h2>iPhone 7</h2>
     <div>
-      <h3>Precio final: <%= number_to_currency(@prices[1], unit: "€") %></h3>
+      <h3>Precio: <%= number_to_currency(@prices[1], unit: "€") %></h3>
     </div>
   </div>
   <div class="col-md-4 text-center">
     <p><%= image_tag "samsung_gear.jpg" %></p>
     <h2>Samsung Gear S2</h2>
     <div>
-      <h3>Precio final: <%= number_to_currency(@prices[2], unit: "€") %></h3>
-    </div>
-  </div>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><b>LÓGICA APLICADA</b></h4>
-      </div>
-      <div class="modal-body">
-        <b><%= @text %></b>
-        <%= render partial: @partial %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-      </div>
+      <h3>Precio: <%= number_to_currency(@prices[2], unit: "€") %></h3>
     </div>
   </div>
 </div>
