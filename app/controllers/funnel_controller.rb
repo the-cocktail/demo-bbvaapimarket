@@ -1,13 +1,14 @@
 class FunnelController < ApplicationController
 
-  skip_before_filter :authorize, only: [:index]
+  skip_before_filter :authorize, only: [:index, :buy]
 
   def index
     session[:last_url] = "/funnel"
-    redirect_to action: :buy and return if session_active?
+    redirect_to action: :buy_bbva and return if session_active?
   end
 
-  def buy
+  def buy_bbva
+    @real_prices = [250, 900, 250]
     if @client.accounts.any? && @client.accounts.map{|account| account["balance"]}.max > 8_000
       @text = I18n.t(".more_than_8000")
       @partial = "accounts"
@@ -25,6 +26,10 @@ class FunnelController < ApplicationController
       @partial = "default"
       @prices = [250, 900, 250]
     end
+  end
+
+  def buy
+    @prices = [250, 900, 250]
   end
 
 end
