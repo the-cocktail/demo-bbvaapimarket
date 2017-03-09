@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/the-cocktail/omniauth-bbva.git
-  revision: be654266870bf54b3ad740b445e11d7f8da73de7
+  revision: fd1ec2814a1045af8e656b39314d4d924f260ba3
   specs:
     omniauth-bbva (0.1.0)
       oauth2 (~> 1.0)
