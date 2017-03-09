@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :accounts
   resources :cards
+  resources :loans
   resources :me, only: [:index]
   resources :funnel, only: [:index]
   get 'funnel/buy_bbva', to: 'funnel#buy_bbva'
