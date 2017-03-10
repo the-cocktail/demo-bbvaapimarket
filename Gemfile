@@ -26,6 +26,7 @@ gem 'config'
 
 #BBVA Oauth2 process
 gem 'omniauth-bbva', git: 'git://github.com/the-cocktail/omniauth-bbva.git'
+gem 'bbva-api-market', git: 'git://github.com/the-cocktail/bbva-api-market'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

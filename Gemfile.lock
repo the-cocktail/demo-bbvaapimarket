@@ -1,6 +1,12 @@
 GIT
+  remote: git://github.com/the-cocktail/bbva-api-market
+  revision: b8601826613ee240bc89ffb46caf6309c81c4092
+  specs:
+    bbva-api-market (0.1.0)
+
+GIT
   remote: git://github.com/the-cocktail/omniauth-bbva.git
-  revision: fd1ec2814a1045af8e656b39314d4d924f260ba3
+  revision: db599c67d6b30f49636ecea0780b877a8f4ceeb2
   specs:
     omniauth-bbva (0.1.0)
       oauth2 (~> 1.0)
@@ -227,6 +233,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bbva-api-market!
   better_errors
   bootstrap-sass (~> 3.3.6)
   byebug
