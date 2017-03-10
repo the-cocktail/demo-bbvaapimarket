@@ -1,6 +1,6 @@
 require "oauth2"
 class ApplicationController < ActionController::Base
-  include Bbva::Api::V1
+  include Bbva::Api::Market
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -8,14 +8,13 @@ class ApplicationController < ActionController::Base
 
 
   def authorize
-
-    unless session_active?      
+    unless session_active?
       session[:last_url] = request.env["PATH_INFO"]
       redirect_root_if_needed
     else
-      @client = Bbva::Client.new(session[:auth]["credentials"].merge({client_id: CLIENT_ID , secret: CLIENT_SECRET})) 
+      @client = Bbva::Api::Market::Client.new(session[:auth]["credentials"].merge({client_id: CLIENT_ID , secret: CLIENT_SECRET}))
     end
-      
+
   end
 
 
@@ -27,7 +26,7 @@ class ApplicationController < ActionController::Base
         true
       else
         false
-      end    
+      end
     end
 
     def token_expired?
@@ -36,17 +35,17 @@ class ApplicationController < ActionController::Base
 
     def refresh_token!
 
-      @client = Bbva::Client.new(session[:auth]["credentials"].merge({client_id: CLIENT_ID , secret: CLIENT_SECRET}))
+      @client = Bbva::Api::Market::Client.new(session[:auth]["credentials"].merge({client_id: CLIENT_ID , secret: CLIENT_SECRET}))
       begin
         data    = JSON.parse(@client.refresh_token)
         Rails.logger.info("refresh_token!")
         #Renovate credentials
         session[:auth]["credentials"]["expires_at"]    = Time.now.to_i + data["expires_in"]
         session[:auth]["credentials"]["token"]         = data["access_token"]
-        session[:auth]["credentials"]["refresh_token"] = data["refresh_token"]        
+        session[:auth]["credentials"]["refresh_token"] = data["refresh_token"]
       rescue Exception => e
         # refresh_token also have expiration time ("refresh_expires_in"=>43199) so we have to authorize again.
-        redirect_to "/auth/bbva" 
+        redirect_to "/auth/bbva"
       end
 
     end
