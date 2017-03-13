@@ -1,0 +1,61 @@
+<div class="page-header">
+  <h3>
+    Datos de su compra
+  </h3>
+</div>
+<div class="row">
+  <div class="row">
+    <h3>Tu compra</h3>
+    <div class="col-md-6">
+      <p><%= image_tag "#{@product}.jpg" %></p>
+    </div>
+    <div class="col-md-4">
+      <h4 class="text-muted">Precio real: <%= number_to_currency(@price, unit: "€") %></h4>
+      <h4 class="text-success">Descuento: <%= number_to_currency(@price * @discount, unit: "€") %></h4>
+      <h3>Precio a pagar: <%= number_to_currency(@price * (1.0 - @discount), unit: "€") %></h3>
+    </div>
+  </div>
+
+  <%= form_tag transfer_path do %>
+
+    <div class="row col-md-4">
+      <h3>Datos personales</h3>
+      <% ["name", "surname", "secondSurname"].each do |field| %>
+        <div class="form-group">
+          <%= label_tag field, field.underscore.humanize %>
+          <%= text_field_tag field, @client_data[field], disabled: "disabled", class: "form-control" %>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class="row col-md-4 col-md-push-2">
+    <h3>Datos de contacto</h3>
+
+    <% ["email", "phone"].each do |field| %>
+      <div class="form-group">
+        <%= label_tag field, field.underscore.humanize %>
+        <%= text_field_tag field, @client_data["contactInfo"][field], disabled: "disabled", class: "form-control" %>
+      </div>
+    <% end %>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <h3>Dirección</h3>
+      <% ["streetType", "streetName", "streetNumber", "floor",
+        "door", "state", "zipcode", "location"].in_groups_of(4, false) do |group_field| %>
+        <div class="row col-md-4 <%= cycle("wadus", "col-md-push-2") %>">
+          <% group_field.each do |field| %>
+            <div class="form-group">
+              <%= label_tag field, field.underscore.humanize %>
+              <%= text_field_tag field, @client_data["address"][field], disabled: "disabled", class: "form-control" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="clearfix"></div>
+      <%= submit_tag "Pagar ahora", class: "btn btn-primary btn-large" %>
+      <div class="clearfix"></div>
+  <% end %>
+</div>
