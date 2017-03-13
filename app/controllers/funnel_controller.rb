@@ -8,7 +8,33 @@ class FunnelController < ApplicationController
   end
 
   def buy_bbva
-    @prices = [250, 900, 250]
+    set_prices
+    set_discount_info
+  end
+
+  def buy
+    set_prices
+  end
+
+  def payment
+    @client_data = @client.identity
+    @account = @client.accounts.first
+    @product = params[:id]
+    set_prices
+    @price = @prices[@product.to_sym]
+    set_discount_info
+  end
+
+  def transfer
+  end
+
+  private
+
+  def set_prices
+    @prices = {nintendo: 250, iphone: 900, samsung: 250}
+  end
+
+  def set_discount_info
     if @client.accounts.any? && @client.accounts.map{|account| account["balance"]}.max > 8_000
       @text = I18n.t(".more_than_8000")
       @partial = "accounts"
@@ -26,10 +52,6 @@ class FunnelController < ApplicationController
       @partial = "default"
       @discount = 0.0
     end
-  end
-
-  def buy
-    @prices = [250, 900, 250]
   end
 
 end
