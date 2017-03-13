@@ -13,27 +13,33 @@
     <p><%= image_tag "nintendo.jpg" %></p>
     <h2>Nintendo Switch</h2>
     <div>
-      <h4 class="text-muted">Precio real: <%= number_to_currency(@prices[0], unit: "€") %></h4>
-      <h4 class="text-success">Descuento: <%= number_to_currency(@prices[0] * @discount, unit: "€") %></h4>
-      <h3>Precio final: <%= number_to_currency(@prices[0] * (1.0 - @discount), unit: "€") %></h3>
+      <% nintendo_price = @prices[:nintendo] %>
+      <h4 class="text-muted">Precio real: <%= number_to_currency(nintendo_price, unit: "€") %></h4>
+      <h4 class="text-success">Descuento: <%= number_to_currency(nintendo_price * @discount, unit: "€") %></h4>
+      <h3>Precio final: <%= number_to_currency(nintendo_price * (1.0 - @discount), unit: "€") %></h3>
+      <p><%= link_to "Compra en un click", payment_path("nintendo"), class: "btn btn-primary btn-lg" %></p>
     </div>
   </div>
   <div class="col-md-4 text-center">
     <p><%= image_tag "iphone.jpg" %></p>
     <h2>iPhone 7</h2>
     <div>
-      <h4 class="text-muted">Precio real: <%= number_to_currency(@prices[1], unit: "€") %></h4>
-      <h4 class="text-success">Descuento: <%= number_to_currency(@prices[1] * @discount, unit: "€") %></h4>
-      <h3>Precio final: <%= number_to_currency(@prices[1] * (1.0 - @discount), unit: "€") %></h3>
+      <% iphone_price = @prices[:iphone] %>
+      <h4 class="text-muted">Precio real: <%= number_to_currency(iphone_price, unit: "€") %></h4>
+      <h4 class="text-success">Descuento: <%= number_to_currency(iphone_price * @discount, unit: "€") %></h4>
+      <h3>Precio final: <%= number_to_currency(iphone_price * (1.0 - @discount), unit: "€") %></h3>
+      <p><%= link_to "Compra en un click", payment_path("iphone"), class: "btn btn-primary btn-lg" %></p>
     </div>
   </div>
   <div class="col-md-4 text-center">
-    <p><%= image_tag "samsung_gear.jpg" %></p>
+    <p><%= image_tag "samsung.jpg" %></p>
     <h2>Samsung Gear S2</h2>
     <div>
-      <h4 class="text-muted">Precio real: <%= number_to_currency(@prices[2], unit: "€") %></h4>
-      <h4 class="text-success">Descuento: <%= number_to_currency(@prices[2] * @discount, unit: "€") %></h4>
-      <h3>Precio final: <%= number_to_currency(@prices[2] * (1.0 - @discount), unit: "€") %></h3>
+      <% samsung_price = @prices[:samsung] %>
+      <h4 class="text-muted">Precio real: <%= number_to_currency(samsung_price, unit: "€") %></h4>
+      <h4 class="text-success">Descuento: <%= number_to_currency(samsung_price * @discount, unit: "€") %></h4>
+      <h3>Precio final: <%= number_to_currency(samsung_price * (1.0 - @discount), unit: "€") %></h3>
+      <p><%= link_to "Compra en un click", payment_path("samsung"), class: "btn btn-primary btn-lg" %></p>
     </div>
   </div>
 </div>
