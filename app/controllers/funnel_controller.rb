@@ -32,6 +32,9 @@ class FunnelController < ApplicationController
     set_otp_session(otp_token, product.to_sym, account["id"])
     send_sms_code
     redirect_to otp_url
+  rescue
+    flash[:danger] = I18n.t(".transfer_grant_ko")
+    redirect_to root_path
   end
 
   def transfer_back_url
@@ -42,6 +45,10 @@ class FunnelController < ApplicationController
       flash[:success] = I18n.t(".transfer_ok")
       redirect_to accounts_path
     end
+  rescue
+    flash[:danger] = I18n.t(".transfer_ko")
+    redirect_to root_path
+  ensure
     reset_otp_session
   end
 
