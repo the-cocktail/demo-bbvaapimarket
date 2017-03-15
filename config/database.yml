@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+credentials: &credentials
+  username: <%= Settings.database.username %>
+  password: <%= Settings.database.password %>
+
+development:
+  <<: *default
+  <<: *credentials
+  database: bbva_demo_development
+
+test:
+  <<: *default
+  <<: *credentials
+  database: bbva_demo_test
+
+production:
+  <<: *default
+  database: bbva_demo_production
