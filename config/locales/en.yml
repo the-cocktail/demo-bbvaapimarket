@@ -25,3 +25,4 @@ en:
   more_than_2_accounts: Por tener más de 2 cuentas con BBVA
   default_text: Precio estándar. No se ha aplicado ningún descuento por no cumplir las condiciones necesarias en cuentas y/o tarjetas.
   more_or_equal_than_2_cards: Por tener 2 o más tarjetas con BBVA
+  transfer_payment_text: Pago por transferencia desde demo The Cocktail (%{product})

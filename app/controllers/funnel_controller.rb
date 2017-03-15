@@ -27,7 +27,7 @@ class FunnelController < ApplicationController
     product = params[:id]
     price = @prices[product.to_sym] * (1.0 - @discount)
     account = @client.accounts.detect{|account| account["id"] == params[:account_id]}
-    payload = fake_payload(account["id"], price)
+    payload = fake_payload(account["id"], price, product)
     otp_url, otp_token = @client.get_otp_url_and_token_for(:transfer, payload)
     set_otp_session(otp_token, product.to_sym, account["id"])
     redirect_to otp_url
@@ -36,7 +36,7 @@ class FunnelController < ApplicationController
   def transfer_back_url
     if params["result"] == "OK"
       price = @prices[session[:otp_product]] * (1.0 - @discount)
-      payload = fake_payload(session[:otp_account], price)
+      @payload = fake_payload(session[:otp_account], price, session[:otp_product])
       @transfer = @client.send_transfer(payload, session[:otp_token])
     end
     reset_otp_session
@@ -56,7 +56,7 @@ class FunnelController < ApplicationController
     session[:otp_account] = nil
   end
 
-  def fake_payload(account_id, price)
+  def fake_payload(account_id, price, product)
     {
       originAccount: {
         id: account_id
@@ -72,7 +72,7 @@ class FunnelController < ApplicationController
       },
       transferType: "SEPA",
       feePolicy: "SHARED",
-      description: "Pago por transferencia de producto desde demo The Cocktail"
+      description: I18n.t(".transfer_payment_text", product: product)
     }
   end
 
