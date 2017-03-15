@@ -26,3 +26,6 @@ en:
   default_text: Precio estándar. No se ha aplicado ningún descuento por no cumplir las condiciones necesarias en cuentas y/o tarjetas.
   more_or_equal_than_2_cards: Por tener 2 o más tarjetas con BBVA
   transfer_payment_text: Pago por transferencia desde demo The Cocktail (%{product})
+  transfer_ko: No se ha podido completar la transferencia
+  transfer_grant_ko: No se han podido obtener los permisos para realizar la transferencia
+  transfer_ok: Su transferencia se ha realizado correctamente
