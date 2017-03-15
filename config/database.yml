@@ -4,8 +4,8 @@ default: &default
   pool: 5
 
 credentials: &credentials
-  username: <%= Settings.database.username %>
-  password: <%= Settings.database.password %>
+  username: postgres
+  password: ''
 
 development:
   <<: *default
