@@ -24,6 +24,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'config'
 
+gem 'pg'
+gem 'activerecord-session_store'
+
 #BBVA Oauth2 process
 gem 'omniauth-bbva', git: 'git://github.com/the-cocktail/omniauth-bbva.git'
 gem 'bbva-api-market', git: 'git://github.com/the-cocktail/bbva-api-market'
