@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'funnel/buy', to: 'funnel#buy'
   get 'funnel/payment/:id', to: 'funnel#payment', as: :payment
   post 'funnel/transfer/:id', to: 'funnel#transfer', as: :transfer
+  get 'funnel/transfer_back_url', to: 'funnel#transfer_back_url', as: :transfer_back_url
   get '/me/samples', :to => 'me#samples'
   #BBVA Omniauth callback
   get '/auth/:bbva/callback', :to => 'sessions#create'
