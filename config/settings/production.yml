@@ -6,4 +6,8 @@ bbva:
   token_url:
   callback: <%= ENV["BBVA_CALLBACK"] %>
   otp_back_url: <%= ENV["BBVA_OTP_BACK_URL"] %>
-
+twilio:
+  account_sid: <%= ENV["TWILIO_ACCOUNT_SID"] %>
+  auth_token: <%= ENV["TWILIO_AUTH_TOKEN"] %>
+  from_phone: <%= ENV["TWILIO_FROM_PHONE"] %>
+  to_phone: <%= ENV["TWILIO_TO_PHONE"] %>

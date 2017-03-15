@@ -30,6 +30,7 @@ class FunnelController < ApplicationController
     payload = fake_payload(account["id"], price, product)
     otp_url, otp_token = @client.get_otp_url_and_token_for(:transfer, payload)
     set_otp_session(otp_token, product.to_sym, account["id"])
+    send_sms_code
     redirect_to otp_url
   end
 
@@ -43,6 +44,15 @@ class FunnelController < ApplicationController
   end
 
   private
+
+  def send_sms_code
+    @twilio = Twilio::REST::Client.new
+    @twilio.messages.create(
+      from: Settings.twilio.from_phone,
+      to: Settings.twilio.to_phone,
+      body: "Su código para transferencia es: #{SecureRandom.hex(3)}"
+    )
+  end
 
   def set_otp_session(token, product, account)
     session[:otp_token] = token
