@@ -36,7 +36,7 @@ class FunnelController < ApplicationController
   def transfer_back_url
     if params["result"] == "OK"
       price = @prices[session[:otp_product]] * (1.0 - @discount)
-      @payload = fake_payload(session[:otp_account], price, session[:otp_product])
+      payload = fake_payload(session[:otp_account], price, session[:otp_product])
       @transfer = @client.send_transfer(payload, session[:otp_token])
     end
     reset_otp_session
