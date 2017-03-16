@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post 'funnel/transfer/:id', to: 'funnel#transfer', as: :transfer
   get 'funnel/transfer_back_url', to: 'funnel#transfer_back_url', as: :transfer_back_url
   get '/me/samples', :to => 'me#samples'
+  get 'paystats/basic_stats', :to => 'paystats#basic_stats', as: :paystats_basic_stats
   #BBVA Omniauth callback
   get '/auth/:bbva/callback', :to => 'sessions#create'
   get '/sessions/destroy'

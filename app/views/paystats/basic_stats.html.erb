@@ -1,0 +1,49 @@
+<h1>Datos para código postal 28020 en el rango 09-2015 a 12-2015</h1>
+<div id="chart_div"></div>
+<div class="row">
+  <legend>Leyenda</legend>
+  <ul>
+  <li><b>date:</b> temporal unit reference for the provided statistics</li>
+  <li><b>avg:</b> average transaction amount</li>
+  <li><b>max:</b> maximum transaction amount</li>
+  <li><b>min:</b> minimum transaction amount</li>
+  <li><b>std:</b> standard deviation transaction amount</li>
+  <li><b>peak txs day:</b> day of week with maximum number of transactions. hidden if group_by=day. [1=Sunday, 2=Monday, 3=Tuesday, 4=Wednesday, 5=Thursday, 6=Friday, 7=Saturday]</li>
+  <li><b>valley txs day:</b> day of week with minimum number of transactions. hidden if group_by=day. [1=Sunday, 2=Monday, 3=Tuesday, 4=Wednesday, 5=Thursday, 6=Friday, 7=Saturday]</li>
+  <li><b>peak txs hour:</b> hour of day with maximum number of transactions, values [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]</li>
+  <li><b>valley txs hour:</b> hour of day with minimum number of transactions, values [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]</li>
+  <li><b>merchants:</b> number of merchants</li>
+  <li><b>cards:</b> number of cards</li>
+  <li><b>txs:</b> number of transactions</li>
+  </ul>
+</div>
+
+
+ <script type="text/javascript">
+     google.charts.load("current", {packages:["corechart"]});
+     google.charts.setOnLoadCallback(drawChart);
+     function drawChart() {
+       var data = google.visualization.arrayToDataTable([
+         <%= raw @keys %>,
+         <% @stats.each do |stat| %>
+          <%= raw stat.values %>,
+         <% end %>
+       ]);
+
+       var view = new google.visualization.DataView(data);
+       view.setColumns([0, 1,2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+
+       var options = {
+          isStacked: true,
+          height: 800,
+          legend: {position: 'top', maxLines: 3},
+          hAxis: {minValue: 0},
+          chart: {
+            title: 'Basic stats',
+            subtitle: 'Zipcode: 28020 from 03-2015 to 10-2015',
+          }
+        };
+       var chart = new google.visualization.BarChart(document.getElementById("chart_div"));
+       chart.draw(view, options);
+   }
+   </script>
