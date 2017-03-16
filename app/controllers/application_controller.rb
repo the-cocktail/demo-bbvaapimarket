@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
       session[:last_url] = request.env["PATH_INFO"]
       redirect_root_if_needed
     else
-      @client = Bbva::Api::Market::Client.new(session[:auth]["credentials"].merge({client_id: CLIENT_ID , secret: CLIENT_SECRET}))
+      @client ||= Bbva::Api::Market::Client.new(session[:auth]["credentials"].merge({client_id: CLIENT_ID , secret: CLIENT_SECRET}))
     end
 
   end
