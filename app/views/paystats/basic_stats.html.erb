@@ -37,11 +37,7 @@
           isStacked: true,
           height: 800,
           legend: {position: 'top', maxLines: 3},
-          hAxis: {minValue: 0},
-          chart: {
-            title: 'Basic stats',
-            subtitle: 'Zipcode: 28020 from 03-2015 to 10-2015',
-          }
+          hAxis: {minValue: 0}
         };
        var chart = new google.visualization.BarChart(document.getElementById("chart_div"));
        chart.draw(view, options);
