@@ -6,7 +6,7 @@ Rails application demo of BBVA API MARKET using:
 
 Before to start you should:
 - Create a new [BBVA API MARKET](http://www.bbvaapimarket.com) application
-- Activate at least accounts, cards and identity products
+- Activate at least accounts, cards, identity products, loans, payments and paystats
 - Setup your site and callback path
 - Get your client_id and client_secret
 
