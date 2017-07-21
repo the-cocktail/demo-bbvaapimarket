@@ -37,7 +37,7 @@
       <% ["email", "phone"].each do |field| %>
         <div class="form-group">
           <%= label_tag field, field.underscore.humanize %>
-          <%= text_field_tag field, @client_data["contactInfo"][field], disabled: "disabled", class: "form-control" %>
+          <%= text_field_tag field, @client_data[field], disabled: "disabled", class: "form-control" %>
         </div>
       <% end %>
       </div>

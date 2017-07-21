@@ -1,0 +1,13 @@
+bbva:
+  client_id: app.bbva.thecocktail
+  client_secret: bnoxqcXciZJsaHpBQWE8TmX@OCEdtQXoyghgh$rcsKj3jS%kIGPhjGN4MuMzozkL
+  site: <%= ENV["BBVA_SITE"] %>
+  authorize_url:
+  token_url:
+  callback: http://localhost:3000/auth/bbva/callback
+  otp_back_url: http://localhost:3000/funnel/transfer_back_url
+twilio:
+  account_sid: ACf909bb78d052fcde45dfc992666de349
+  auth_token: f3556c856161671c909e92599e300bba
+  from_phone: +34931070850
+  to_phone: +34689158838

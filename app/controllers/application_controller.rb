@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
     else
       @client ||= Bbva::Api::Market::Client.new(session[:auth]["credentials"].merge({client_id: CLIENT_ID , secret: CLIENT_SECRET}))
     end
-
   end
 
 
@@ -47,7 +46,6 @@ class ApplicationController < ActionController::Base
         # refresh_token also have expiration time ("refresh_expires_in"=>43199) so we have to authorize again.
         redirect_to "/auth/bbva"
       end
-
     end
 
     def redirect_root_if_needed

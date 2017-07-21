@@ -3,7 +3,7 @@
     %b
       Name
   .col-md-4
-    ="#{@current_user[:name]} #{@current_user[:surname]} #{@current_user[:secondSurname]}"
+    ="#{@current_user[:firstName]} #{@current_user[:surname]} #{@current_user[:secondSurname]}"
 %br
 .row
   .col-md-1
@@ -13,12 +13,12 @@
       .col-md-3
         Email
       .col-md-6
-        =@current_user[:contactInfo][:email] 
+        =@current_user[:email]
     .row
       .col-md-3
         Phone
       .col-md-6
-        =@current_user[:contactInfo][:phone]
+        =@current_user[:phone]
 %br
 .row
   .col-md-1
@@ -29,4 +29,4 @@
         .col-md-3
           = k.humanize
         .col-md-6
-          = v 
+          = v
