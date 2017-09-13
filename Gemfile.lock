@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/the-cocktail/bbva-api-market
-  revision: 250becfb8623d9993a6f2408215e02376ebc06b2
+  revision: e38dded6bdf8995ebfb2a42bb517613ed0fd0a5e
   specs:
-    bbva-api-market (0.2.1)
+    bbva-api-market (0.2.2)
 
 GIT
   remote: git://github.com/the-cocktail/omniauth-bbva.git

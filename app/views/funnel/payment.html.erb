@@ -51,7 +51,7 @@
             <% group_field.each do |field| %>
               <div class="form-group">
                 <%= label_tag field, field.underscore.humanize %>
-                <%= text_field_tag field, @client_data["address"][field], disabled: "disabled", class: "form-control" %>
+                <%= text_field_tag field, @client_data["addresses"].first[field], disabled: "disabled", class: "form-control" %>
               </div>
             <% end %>
           </div>
